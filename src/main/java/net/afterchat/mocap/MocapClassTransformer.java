@@ -59,7 +59,7 @@ public class MocapClassTransformer implements IClassTransformer {
 	public byte[] transform(String arg0, String arg1, byte[] arg2) {
 
 		/* Release Obf class */
-		if (arg0.equals("ahu")) {
+		if (arg0.equals("aji")) {
 			logger.info("** MOCAP - Injecting new event trigger into 'Block' Class : "
 					+ arg0);
 			return patchClassASM(arg0, arg2);
@@ -80,12 +80,13 @@ public class MocapClassTransformer implements IClassTransformer {
 		classReader.accept(classNode, 0);
 		Iterator<MethodNode> methods = classNode.methods.iterator();
 
+		
 		while (methods.hasNext()) {
 			MethodNode m = methods.next();
-
+			
 			if ((m.name.equals("onBlockPlacedBy"))
 					|| (m.name.equals("a") && m.desc
-							.equals("(Lafn;IIILrh;Labp;)V"))) {
+							.equals("(Lahb;IIILsv;Ladd;)V"))) {
 				logger.info("** MOCAP - Patching onBlockPlacedBy: " + m.name);
 				AbstractInsnNode currentNode = null;
 				Iterator<AbstractInsnNode> iter = m.instructions.iterator();

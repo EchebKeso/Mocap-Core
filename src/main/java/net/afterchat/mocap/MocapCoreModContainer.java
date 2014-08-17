@@ -39,7 +39,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 public class MocapCoreModContainer extends DummyModContainer {
 	public MocapCoreModContainer() {
 		super(new ModMetadata());
-		ModMetadata meta = getMetadata();
+		ModMetadata meta = getMetadata();		
 		meta.modId = "Mocap-core";
 		meta.name = "Motion Capture (Core)";
 		meta.version = "1.0";
